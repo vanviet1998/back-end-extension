@@ -14,7 +14,7 @@ export class ChatGPTSerivce {
 
   async create(createMenuDto: CreateChatContentDto): Promise<ChatGptDocument> {
     const isExited = await this.chatGPTModel.findOne({
-      keyWord: createMenuDto.keyWord,
+      keyWord: createMenuDto.keyWord.toLocaleLowerCase(),
     });
     if (isExited?.id) {
       return isExited;
@@ -24,7 +24,7 @@ export class ChatGPTSerivce {
     >);
 
     const api = new ChatGPTAPI({
-      apiKey: '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',
+      apiKey: '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',
       completionParams: {
         temperature: 0.5,
         top_p: 0.8,
