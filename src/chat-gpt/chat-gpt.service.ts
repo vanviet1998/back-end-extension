@@ -24,7 +24,7 @@ export class ChatGPTSerivce {
     >);
 
     const api = new ChatGPTAPI({
-      apiKey: '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',
+      apiKey: process.env.API_KEY,
       completionParams: {
         temperature: 0.5,
         top_p: 0.8,
